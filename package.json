@@ -1,0 +1,33 @@
+{
+  "name": "privacy-provider",
+  "version": "0.1.0",
+  "description": "A wrapper for communicating with the Privacy Extension",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uacias/privacy-provider.git"
+  },
+  "keywords": [
+    "privacy",
+    "zk",
+    "extension",
+    "provider",
+    "starknet"
+  ],
+  "author": "Uacias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Uacias/privacy-provider/issues"
+  },
+  "homepage": "https://github.com/Uacias/privacy-provider#readme",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
