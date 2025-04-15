@@ -34,45 +34,60 @@ await privacy.confirmOperation(id);
 All methods are async and return a Promise.
 
 ### `setSeed(seed: string)`
+
 Stores a decrypted seed securely in memory.
 
 ### `getSeed()`
+
 Returns the currently unlocked seed:
+
 ```ts
-{ seed: string | null }
+{
+  seed: string | null;
+}
 ```
 
 ---
 
 ### `generateOperation(metadata: any)`
+
 Creates a new private operation (deposit, transfer, etc.) from the seed.
 Stores it as `pending`.
 
 Returns:
+
 ```ts
-{ hash: string; id: string }
+{
+  hash: string;
+  id: string;
+}
 ```
 
 ---
 
 ### `confirmOperation(id: string)`
+
 Moves a `pending` operation to the `confirmed` list.
 Should be called after a successful on-chain transaction.
 
 ---
 
 ### `abortOperation(id: string)`
+
 Cancels a `pending` operation and marks it as `aborted`.
 
 ---
 
 ### `nullifyOperation(id: string)`
+
 Marks a `confirmed` operation as `nullified`, e.g., after a `withdraw`.
 
 ---
 
 ### `getConfirmedOperations()`
+
 Returns all confirmed operations for the current seed:
+
 ```ts
 { operations: any[] }
 ```
@@ -80,6 +95,7 @@ Returns all confirmed operations for the current seed:
 ---
 
 ### `executeTransaction(body: any)`
+
 Sends a POST request to the Privacy Pools backend to execute a transaction.
 
 ```ts
@@ -90,33 +106,45 @@ await privacy.exetuceTransacion({
 ```
 
 Returns:
+
 ```ts
-{ hash: string }
+{
+  hash: string;
+}
 ```
 
 ---
 
 ### `getProofData(body: any)`
+
 Fetches Merkle paths and related inputs needed to generate a proof.
 
 Returns:
+
 ```ts
-{ data: any }
+{
+  data: any;
+}
 ```
 
 ---
 
 ### `getFeeData(body: any)`
+
 Fetches estimated fees (e.g., paymaster fee, gas) for a transaction.
 
 Returns:
+
 ```ts
-{ data: any }
+{
+  data: any;
+}
 ```
 
 ---
 
 ### `getTokenName(tokenAddress: string)`
+
 Returns the human-readable name of a token from its Starknet address.
 
 ```ts
@@ -126,11 +154,13 @@ const name = await privacy.getTokenName('0xabc...');
 ---
 
 ### `getTokenDecimals(tokenAddress: string)`
+
 Returns the number of decimals of a token.
 
 ---
 
 ### `generateProof({ circuit, witnessInput })`
+
 Generates a SNARK proof using Noir + Garaga + ACVM in the extension's offscreen document.
 
 ```ts
@@ -149,8 +179,11 @@ const proof = await privacy.generateProof({
 ```
 
 Returns:
+
 ```ts
-{ proof: string } // Honk calldata hex
+{
+  proof: string;
+} // Honk calldata hex
 ```
 
 ---

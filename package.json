@@ -2,13 +2,15 @@
   "name": "privacy-provider",
   "version": "0.1.0",
   "description": "A wrapper for communicating with the Privacy Extension",
+  "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && tsc-alias",
+    "fmt": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,8 @@
   },
   "homepage": "https://github.com/Uacias/privacy-provider#readme",
   "devDependencies": {
+    "prettier": "^3.5.3",
+    "tsc-alias": "^1.8.15",
     "typescript": "^5.8.3"
   }
 }

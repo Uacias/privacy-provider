@@ -1,4 +1,3 @@
-export { PrivacyProvider } from './provider';
-
-import { PrivacyProvider } from './provider';
+export { PrivacyProvider } from './provider.js';
+import { PrivacyProvider } from './provider.js';
 export const privacy = new PrivacyProvider();
