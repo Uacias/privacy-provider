@@ -59,7 +59,7 @@ export class PrivacyProvider {
     return this.request<{ seed: string | null }>({ type: 'GET_SEED' });
   }
 
-  async poseidonHash(inputs: bigint[]): Promise<{ hash: string }> {
+  async poseidonHash(inputs: bigint[]): Promise<{ hash: bigint }> {
     return this.request({
       type: 'POSEIDON',
       inputs
