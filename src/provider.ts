@@ -7,7 +7,7 @@ type CircuitInfo = {
 type Message =
   | { type: 'SET_SEED'; seed: string }
   | { type: 'GET_SEED' }
-  | { type: 'POSEIDON'; inputs: bigint[] }
+  | { type: 'POSEIDON'; a: string; b: string }
   | { type: 'GENERATE_OPERATION'; metadata: any }
   | { type: 'CONFIRM_OPERATION'; id: number }
   | { type: 'ABORT_OPERATION'; id: number }
@@ -59,10 +59,17 @@ export class PrivacyProvider {
     return this.request<{ seed: string | null }>({ type: 'GET_SEED' });
   }
 
-  async poseidonHash(inputs: bigint[]): Promise<{ hash: bigint }> {
+  async poseidonHash({
+    a,
+    b
+  }: {
+    a: bigint | string;
+    b: bigint | string;
+  }): Promise<{ hash: string }> {
     return this.request({
       type: 'POSEIDON',
-      inputs
+      a: a.toString(),
+      b: b.toString()
     });
   }
 
